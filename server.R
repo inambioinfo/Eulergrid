@@ -7,7 +7,7 @@ shinyServer(function(input, output) {
       # User has not uploaded a file yet 
       return(NULL) 
     } 
-    read.csv(infile$datapath) 
+    read.csv(infile$datapath,header=TRUE, stringAsFactors = FALSE) 
   }) 
   
   
