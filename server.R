@@ -1,3 +1,4 @@
+library(shiny)
 shinyServer(function(input, output) { 
   
   #This function is repsonsible for loading in the selected file 
@@ -7,7 +8,7 @@ shinyServer(function(input, output) {
       # User has not uploaded a file yet 
       return(NULL) 
     } 
-    read.csv(infile$datapath,header=TRUE, stringAsFactors = FALSE) 
+    read.csv(infile$datapath, stringsAsFactors = FALSE) 
   }) 
   
   
@@ -34,7 +35,7 @@ shinyServer(function(input, output) {
   make_plot <- function(){ 
     #if (input$datafile == 0) return(NULL) 
     df=filedata() 
-
+    
     
     if (is.null(df)) return(NULL) 
     if( ncol(df)== 7 ) {  
@@ -128,7 +129,9 @@ shinyServer(function(input, output) {
         
         # begin plotting
         plot.new()
+        par(mai = c(2,3,2,0.5) + 0.1)
         plot.window(xlim=c(0,1),ylim=c(0,1+bar.bottom))
+        title(main = input$title)
         # draw the grid and add labels
         rect(grid.x1, grid.y1, grid.x2, grid.y2 , col=colVector)
         labelPosVector <- (seq(0,grid.height,length.out=n.samples+1)[-(n.samples + 1)])  + (seq(0,1,length.out=n.samples+1)[2] /2)
@@ -143,7 +146,7 @@ shinyServer(function(input, output) {
         
       }
       plotEuler(df[,1:6], df$N_Pts, names(df[,1:6]))
-
+      
     } 
     if (ncol(df)==6){
       
@@ -152,7 +155,7 @@ shinyServer(function(input, output) {
   # Download the plot 
   output$download_plot <- downloadHandler( 
     filename = function(){ 
-      paste0("Vennuler-", Sys.Date(), ".", input$savetype) 
+      paste0("Euler-", Sys.Date(), ".", input$savetype) 
     }, 
     content = function(file) { 
       switch(input$savetype, 
@@ -163,3 +166,4 @@ shinyServer(function(input, output) {
     } 
   )
 })
+  
