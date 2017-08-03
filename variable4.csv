@@ -1,0 +1,17 @@
+﻿Admit_Acute,Outpt_Diagnostic,Outpt_ZSFG_Urgent_Care,ED,N_Pts
+N,N,N,N,30086
+N,N,N,Y,24112
+N,N,Y,N,4195
+N,N,Y,Y,1686
+N,Y,N,N,30405
+N,Y,N,Y,6495
+N,Y,Y,N,3660
+N,Y,Y,Y,1729
+Y,N,N,N,4749
+Y,N,N,Y,2137
+Y,N,Y,N,132
+Y,N,Y,Y,184
+Y,Y,N,N,2179
+Y,Y,N,Y,2017
+Y,Y,Y,N,284
+Y,Y,Y,Y,496
