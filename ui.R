@@ -1,4 +1,3 @@
-
 shinyUI( 
   navbarPage( "Euler Grid for Invision patients",
               
