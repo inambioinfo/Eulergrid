@@ -1,28 +1,8 @@
-# shinyUI(pageWithSidebar( 
-#    headerPanel("Venn Diagram for Invision patients"), 
-#    
-#   sidebarPanel( 
-#      #Selector for file upload 
-# fileInput('datafile', 'Choose CSV file',
-#                           accept=c('text/csv', 'text/comma-separated-values,text/plain')),
-# 
-# #The action button prevents an action firing before we're ready
-#  actionButton("make_plot", "Get Venn Diagram"),
-# downloadButton("download_plot", "Save plot"),
-# radioButtons( "savetype", NULL, list("pdf", "png"), inline = TRUE )
-#   ),
-# 
-# 
-#   mainPanel(
-#     tableOutput("filetable"),
-#    # tableOutput("geotable"),
-#    plotOutput("distPlot", height = "700px")
-#  )
-# ))
+
 shinyUI( 
-  navbarPage( "Venn Diagram for Invision patients",
+  navbarPage( "Euler Grid for Invision patients",
               
-              #HTML(paste0("<a href=", shQuote("http://jolars.co/shiny/"), ">", "Home", "</a>")), 
+
               windowTitle = "Plot", 
               inverse = TRUE, 
               tabPanel( 
@@ -65,14 +45,12 @@ shinyUI(
                       7, 
                       offset = 3, 
                       wellPanel( 
-                        h3("Area-proportional diagrams with venneuler"), 
+                        h3("Euler Grid for more than four variables"), 
                         p("This", a(href = "https://shiny.rstudio.com/", "shiny"), 
-                          "app is based on an", 
-                          a(href = "www.r-project.org", "R"), 
-                          "package called venneuler. It generates 
-                          area-proportional venn diagrams."),
+                          "app makes Euler Grid for easy visualization of overlap among differnt sets."), 
+                          
                         p(" After running query in SQL Server you have to save the file in csv format. Then select the csv file from the file selector within this app. To get the
-                          correct labeling of the venn diagram use the the example query format given below"),
+                          correct labeling of the Euler Grid use the the example query format given below"),
                         p(strong("Example Qurey")),
                         p("SELECT ACT.FYActivity, ACT.EDActivity, ACT.InpatientActivity, ACT.OutpatientActivity, COUNT(DISTINCT ActiveMRN) AS N_Pts 
                           FROM (
@@ -104,15 +82,9 @@ shinyUI(
                         p (a( href="mailto:hitanzir@gmail.com","hitanzir@gmail.com" ))
                         ) 
                         )
-                    # column( 
-                    #   2, 
-                    #   wellPanel( 
-                    #     
-                    #     p(strong(a(href = "https://github.com/tanzirhasan/Venn-diagram-for-Invision", "The Github repository for the shiny app"))) 
-                    #   ) 
-                    # ) 
+ 
                 ) 
                 ) 
                 ) 
               ) 
-  ) 
+  )
